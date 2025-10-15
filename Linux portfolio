@@ -1,0 +1,90 @@
+# Simple.Backup.sh
+My work
+#!/bin/bash
+# simple_backup.sh
+# Backup a folder with timestamp
+
+# Folders (change these)
+SOURCE="$HOME/Documents/Work"
+DEST="$HOME/Backups"
+
+# Create backup folder if missing
+mkdir -p "$DEST"
+
+# Timestamped backup
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+tar -czf "$DEST/backup_$TIMESTAMP.tar.gz" -C "$SOURCE" .
+
+echo "Backup created at $DEST/backup_$TIMESTAMP.tar.gz"
+
+disk usage notifier
+#!/bin/bash
+# disk_alert.sh
+# Alerts if disk usage exceeds threshold
+
+THRESHOLD=80
+USAGE=$(df / | grep / | awk '{ print $5 }' | sed 's/%//g')
+
+if [ "$USAGE" -gt "$THRESHOLD" ]; then
+  echo "Warning: Disk usage is at ${USAGE}%!"
+
+  Update Pop_OS! with a single command 
+
+  #!/bin/bash
+# system_update.sh
+# Updates APT packages and cleans up
+
+echo "Updating package list..."
+sudo apt update
+
+echo "Upgrading packages..."
+sudo apt upgrade -y
+
+echo "Removing unnecessary packages..."
+sudo apt autoremove -y
+
+echo "System updated successfully!"
+
+
+
+Log monitor 
+
+#!/bin/bash
+# error_monitor.sh
+# Shows lines containing "error" in a log file
+
+LOG_FILE="$HOME/logs/system.log" # Change to your log file
+
+if [ -f "$LOG_FILE" ]; then
+  echo "Errors in $LOG_FILE:"
+  grep -i "error" "$LOG_FILE"
+else
+  echo "Log file not found: $LOG_FILE"
+
+cpu and memory monitor 
+
+#!/bin/bash
+# system_stats.sh
+echo "CPU usage:"
+top -bn1 | grep "Cpu(s)"
+echo
+echo "Memory usage:"
+free -h
+
+folder cleaner
+
+#!/bin/bash
+# clean_temp.sh
+# Deletes files older than 7 days in temp folder
+
+TEMP_DIR="$HOME/Temp"  # Change this
+find "$TEMP_DIR" -type f -mtime +7 -exec rm {} \;
+echo "Old files deleted from $TEMP_DIR"
+
+quic server ping
+
+#!/bin/bash
+# ping_google.sh
+ping -c 4 google.com
+else
+  echo "Disk usage is fine: ${USAGE}%"
