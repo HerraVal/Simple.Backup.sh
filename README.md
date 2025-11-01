@@ -10,4 +10,4 @@ This repository contains small Bash scripts demonstrating Linux system administr
 - Folder cleaner
 - Server ping test
 
-For my full CV, see [My cv.odt](https://github.com/user-attachments/files/22924616/My.cv.odt)
+For my full CV, see [my cv.odt](https://github.com/user-attachments/files/23282290/my.cv.odt)
